@@ -5,23 +5,18 @@ list2 = input('Enter second list of countries ')
 
 list1 = list(list1.split())
 list2 = list(list2.split())
-m = len(list1)
-n = len(list2)
+
 list1 = list(set(list1))
 list2 = list(set(list2))
 
-for i in range (m):
-    for j in range (n):
-        if list1[i] == list2[j]:
-            common.append(list1[i])
-        else:
-            unique.append(list1[i])
-            unique.append(list2[j])
-            
-unique = list(set(unique))
-for ele in unique:
-    if ele in common:
-        unique.remove(ele)
-        
+for m in list1:
+    if m in list2:
+        common.append(m)
+    else:
+        unique.append(m)
+for m in list2:
+    if m not in list1:
+        unique.append(m)
+
 print('The common countries from the two lists are', common)
 print('The unique countries from the two lists are', unique)
